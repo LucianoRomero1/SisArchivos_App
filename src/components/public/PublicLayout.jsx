@@ -7,7 +7,7 @@ export const PublicLayout = () => {
   const { auth } = useAuth();
   return (
     <>
-      {!auth.id ? <Outlet /> : <Navigate to={Global.baseUrl + "home"} />}
+      {!auth.username ? <Outlet /> : <Navigate to={Global.baseUrl + "home"} />}
     </>
   );
 };

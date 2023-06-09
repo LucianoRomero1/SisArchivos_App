@@ -12,29 +12,16 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const authUser = async() => {
-    const token = localStorage.getItem("token");
     const user = localStorage.getItem("user");
+    const userObj = JSON.parse(user);
 
-    if (!token || !user) {
+    if (!user) {
       setLoading(false);
       return false;
+    } else {
+      setAuth(userObj);
+      setLoading(false);
     }
-
-    const userObj = JSON.parse(user);
-    const userId = userObj.id;
-
-    const request = await fetch(Global.apiUrl + "user/profile/" + userId, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: token,
-      },
-    });
-
-    const data = await request.json();
-
-    setAuth(data.user);
-    setLoading(false);
   };
 
   return (

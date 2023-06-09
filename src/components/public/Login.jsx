@@ -16,21 +16,21 @@ export const Login = () => {
     let userToLogin = form;
 
     try {
-      const request = await fetch(Global.apiUrl + "user/login", {
+      const request = await fetch(Global.apiUrl + "login_check", {
         method: "POST",
         body: JSON.stringify(userToLogin),
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
         },
       });
-  
+
       const data = await request.json();
       if (data.status == "success") {
         localStorage.setItem("token", data.token);
         localStorage.setItem("user", JSON.stringify(data.user));
-  
+
         setSaved("logged");
-  
+
         setTimeout(() => {
           setAuth(data.user);
           window.location.reload();
@@ -64,41 +64,55 @@ export const Login = () => {
       <div className="text-center">
         <h2>Iniciar Sesión</h2>
         <form className="form-signin" onSubmit={loginUser}>
-          <div className="input-group input-group-lg">
-            <input
-              type="text"
-              className="form-control text-center"
-              name="username"
-              placeholder="Usuario"
-              onChange={changed}
-              required
-            />
+          <div className="row justify-content-center">
+            <div className="col-lg-4 col-8">
+              <div className="input-group input-group-lg">
+                <input
+                  type="text"
+                  className="form-control text-center"
+                  name="_username"
+                  placeholder="Usuario"
+                  onChange={changed}
+                  required
+                />
+              </div>
+            </div>
           </div>
-
-          <div className="input-group input-group-lg mt-1">
-            <input
-              type={passwordType}
-              className="form-control text-center"
-              name="password"
-              placeholder="Password"
-              onChange={changed}
-              required
-            />
-            <button type="button" className="input-group-text" onClick={togglePassword}>
-              {passwordType == "text" ? (
-                <i className="fas fa-eye"></i>
-              ) : (
-                <i className="fas fa-eye-slash"></i>
-              )}
-            </button>
+          <div className="row justify-content-center">
+            <div className="col-lg-4 col-8">
+              <div className="input-group input-group-lg mt-1">
+                <input
+                  type={passwordType}
+                  className="form-control text-center"
+                  name="_password"
+                  placeholder="Password"
+                  onChange={changed}
+                  required
+                />
+                <button
+                  type="button"
+                  className="input-group-text"
+                  onClick={togglePassword}
+                >
+                  {passwordType == "text" ? (
+                    <i className="fas fa-eye"></i>
+                  ) : (
+                    <i className="fas fa-eye-slash"></i>
+                  )}
+                </button>
+              </div>
+            </div>
           </div>
-
-          <button
-            className="mt-4 btn btn-lg btn-primary btn-block"
-            type="submit"
-          >
-            Ingresar
-          </button>
+          <div className="row justify-content-center">
+            <div className="col-lg-4 col-8">
+              <button
+                className="mt-4 btn btn-lg btn-primary btn-block"
+                type="submit"
+              >
+                Ingresar
+              </button>
+            </div>
+          </div>
         </form>
         <div className="text-center mt-2">
           {saved == "logged" ? (

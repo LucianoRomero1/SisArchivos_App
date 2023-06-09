@@ -8,7 +8,7 @@ import { Dropdowns } from "./Dropdowns";
 export const Nav = () => {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbarBasso">
+      <nav className="navbar navbar-expand-lg bg-basso-red">
         <div className="container">
           <NavLink to={Global.baseUrl} className="navbar-brand navbarLogo">
             <img

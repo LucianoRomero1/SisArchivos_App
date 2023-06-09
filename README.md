@@ -1,5 +1,5 @@
 # SisBaseApp
-App React del SisEtiquetas
+App React del SisArchivos
 
 Comandos para instalar React + Vite
 - npm create vite@latest

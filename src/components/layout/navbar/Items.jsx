@@ -12,8 +12,8 @@ export const Items = ({ nameItem, routeCreate, routeList }) => {
         data-mdb-toggle="dropdown"
         aria-expanded="false"
       >
-        {nameItem}
-      </a>
+        {nameItem} 
+      </a> 
       <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
         <li className="m-1">
           <Link to={routeCreate} className="dropdown-item">

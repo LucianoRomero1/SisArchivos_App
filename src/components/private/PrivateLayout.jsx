@@ -12,7 +12,7 @@ export const PrivateLayout = () => {
     return (
       <>
         <Nav />
-        {auth.id ? <Outlet /> : <Navigate to={Global.baseUrl + "login"} />}
+        {auth.username ? <Outlet /> : <Navigate to={Global.baseUrl + "login"} />}
       </>
     );
   }
