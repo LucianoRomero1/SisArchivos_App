@@ -1,5 +1,4 @@
 import React, { createContext, useState, useEffect } from "react";
-import { Global } from "../helpers/Global";
 
 const AuthContext = createContext();
 

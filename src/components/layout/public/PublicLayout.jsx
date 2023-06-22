@@ -1,7 +1,7 @@
 import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
-import { Global } from "../../helpers/Global";
-import useAuth from "../../hooks/useAuth";
+import { Global } from '../../../helpers/Global';
+import useAuth from '../../../hooks/useAuth';
 
 export const PublicLayout = () => {
   const { auth } = useAuth();

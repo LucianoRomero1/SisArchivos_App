@@ -1,8 +1,8 @@
 import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
-import { Global } from "../../helpers/Global";
-import useAuth from "../../hooks/useAuth";
-import { Nav } from "../layout/layout";
+import { Global } from '../../../helpers/Global';
+import { Nav } from "../layout";
+import useAuth from '../../../hooks/useAuth';
 
 export const PrivateLayout = () => {
   const { auth, loading } = useAuth();

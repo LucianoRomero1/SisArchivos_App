@@ -1,3 +1,7 @@
+*{
+    font-family: "Arial", sans-serif;
+}
+
 /* navbar */
 .bg-basso-red {
     background-color: #BD2821 !important;

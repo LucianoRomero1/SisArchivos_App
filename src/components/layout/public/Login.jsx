@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import useAuth from "../../hooks/useAuth";
-import { useForm } from "../../hooks/useForm";
-import { Global } from "../../helpers/Global";
+import useAuth from '../../../hooks/useAuth';
+import { useForm } from "../../../hooks/useForm";
+import { Global } from '../../../helpers/Global';
 
 export const Login = () => {
   const { form, changed } = useForm({});

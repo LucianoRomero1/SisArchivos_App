@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../../assets/bassosa.png";
-import { Global } from "../../../helpers/Global";
+import { Global } from '../../../helpers/Global';
 import { Header } from "../layout";
 import { Dropdowns } from "./Dropdowns";
 

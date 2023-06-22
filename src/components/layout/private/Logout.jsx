@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
-import useAuth from '../../hooks/useAuth';
+import useAuth from '../../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
-import { Global } from '../../helpers/Global';
+import { Global } from '../../../helpers/Global';
 
 export const Logout = () => {
 

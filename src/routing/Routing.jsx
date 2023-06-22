@@ -1,13 +1,15 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "../context/AuthProvider";
-import { PrivateLayout } from "../components/private/PrivateLayout";
-import { PublicLayout } from "../components/public/PublicLayout";
-import { Home } from "../components/private/private";
-import { Login } from "../components/public/Login";
+import { PrivateLayout } from "../components/layout/private/PrivateLayout";
+import { PublicLayout } from "../components/layout/public/PublicLayout";
+import { Home } from "../components/layout/private/private";
+import { Login } from "../components/layout/public/Login";
 import { Error } from "../components/layout/layout";
-import { Global } from "../helpers/Global";
-import { Logout } from "../components/private/Logout";
+import { Global } from '../helpers/Global';
+import { Logout } from "../components/layout/private/Logout";
+import { CreateArea } from "../components/areas/CreateArea";
+import { ViewAreas } from "../components/areas/ViewAreas";
 
 export const Routing = () => {
   return (
@@ -21,6 +23,8 @@ export const Routing = () => {
           <Route path={Global.baseUrl} element={<PrivateLayout />}>
             <Route index element={<Home />} />
             <Route path="home" element={<Home />} />
+            <Route path="area/create" element={<CreateArea />} />
+            <Route path="area/view" element={<ViewAreas />} />
             <Route path="logout" element={<Logout />} />
           </Route>
           <Route path="*" element={<Error />} />
