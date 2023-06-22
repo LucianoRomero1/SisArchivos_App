@@ -69,7 +69,7 @@ export const Login = () => {
               <div className="input-group input-group-lg">
                 <input
                   type="text"
-                  className="form-control text-center"
+                  className="form-control text-left"
                   name="_username"
                   placeholder="Usuario"
                   onChange={changed}
@@ -83,7 +83,7 @@ export const Login = () => {
               <div className="input-group input-group-lg mt-1">
                 <input
                   type={passwordType}
-                  className="form-control text-center"
+                  className="form-control text-left"
                   name="_password"
                   placeholder="Password"
                   onChange={changed}
@@ -114,7 +114,7 @@ export const Login = () => {
             </div>
           </div>
         </form>
-        <div className="text-center mt-2">
+        <div className="text-center mt-3">
           {saved == "logged" ? (
             <strong className="alert alert-success">User logged in</strong>
           ) : (

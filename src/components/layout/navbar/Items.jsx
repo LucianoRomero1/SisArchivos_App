@@ -15,19 +15,23 @@ export const Items = ({ nameItem, routeCreate, routeList }) => {
         {nameItem} 
       </a> 
       <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-        <li className="m-1">
-          <Link to={routeCreate} className="dropdown-item">
-            <i className="fas fa-plus-circle me-1" />
-            Create
-          </Link>
-        </li>
-        <li>
-          <hr className="dropdown-divider" />
-        </li>
+        {routeCreate && (
+          <li className="m-1">
+            <Link to={routeCreate} className="dropdown-item">
+              <i className="fas fa-plus-circle me-1" />
+              Crear
+            </Link>
+          </li>
+        )}
+        {routeCreate && (
+          <li>
+            <hr className="dropdown-divider" />
+          </li>
+        )}
         <li className="m-1">
           <Link to={routeList} className="dropdown-item">
             <i className="fas fa-info-circle me-1" />
-            Detail
+            Detalle
           </Link>
         </li>
       </ul>

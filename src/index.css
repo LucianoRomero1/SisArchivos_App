@@ -1,21 +1,23 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /* navbar */
 .bg-basso-red {
     background-color: #BD2821 !important;
 }
 
-/* .logoBasso:hover{
-    transform: scale(1.1);
-    transition: 1s;
-} */
-
-.logoBasso:hover {
+.navbarLogo:hover{
     transform: scale(1.1);
     transition: .5s;
 }
+
+.nav-link, .nav-link:link{
+    color: white;
+}
+
+.nav-link:hover,
+.nav-link:visited {
+  color: white;
+  font-weight: bold;
+}
+
 
 /* footer */
 .fixed-bottom {

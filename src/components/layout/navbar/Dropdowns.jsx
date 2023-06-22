@@ -23,7 +23,10 @@ export const Dropdowns = () => {
 
       <div className="collapse navbar-collapse" id="navbarRightAlignExample">
         <ul className="navbar-nav ms-auto">
-          <Items nameItem="Áreas" routeCreate="area/create" routeList="area/list" />
+          <Items nameItem="Areas" routeCreate="area/create" routeList="area/list" />
+          <Items nameItem="Cajas" routeCreate="box/create" routeList="box/list" />
+          <Items nameItem="Carpetas" routeCreate="folder/create" routeList="folder/list" />
+          <Items nameItem="Movimientos" routeList="record/list" />
           <li className="nav-item dropdown">
             <a
               className="nav-link dropdown-toggle"
