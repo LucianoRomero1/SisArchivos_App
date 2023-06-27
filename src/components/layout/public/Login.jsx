@@ -16,6 +16,7 @@ export const Login = () => {
     let userToLogin = form;
 
     try {
+      //TODO: Cambiar la url, creo que no es mas login_check
       const request = await fetch(Global.apiUrl + "login_check", {
         method: "POST",
         body: JSON.stringify(userToLogin),

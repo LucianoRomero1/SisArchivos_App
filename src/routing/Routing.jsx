@@ -8,7 +8,7 @@ import { Login } from "../components/layout/public/Login";
 import { Error } from "../components/layout/layout";
 import { Global } from '../helpers/Global';
 import { Logout } from "../components/layout/private/Logout";
-import { CreateArea } from "../components/areas/CreateArea";
+import { SaveArea } from "../components/areas/SaveArea";
 import { ViewAreas } from "../components/areas/ViewAreas";
 
 export const Routing = () => {
@@ -23,7 +23,7 @@ export const Routing = () => {
           <Route path={Global.baseUrl} element={<PrivateLayout />}>
             <Route index element={<Home />} />
             <Route path="home" element={<Home />} />
-            <Route path="area/create" element={<CreateArea />} />
+            <Route path="area/create" element={<SaveArea />} />
             <Route path="area/view" element={<ViewAreas />} />
             <Route path="logout" element={<Logout />} />
           </Route>
