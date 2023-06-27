@@ -20,7 +20,7 @@ export const SaveArea = ({ area = null }) => {
     e.preventDefault();
     let newArea = form;
 
-    //TODO: 
+    //TODO: Enviar el token en los headers
 
     const request = await fetch(Global.apiUrl + "area/create", {
       method: "POST",

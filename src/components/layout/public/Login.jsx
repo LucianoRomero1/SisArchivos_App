@@ -28,6 +28,7 @@ export const Login = () => {
       const data = await request.json();
       if (data.status == "success") {
         localStorage.setItem("user", JSON.stringify(data.user));
+        //TODO: Me falta setear el TOKEN al localStorage
 
         setSaved("logged");
 
