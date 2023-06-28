@@ -8,6 +8,7 @@ export const SaveArea = ({ area = null }) => {
   const { form, changed } = useForm({});
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   const [showErrorAlert, setShowErrorAlert] = useState(false);
+  const token = localStorage.getItem("token");
   const navigate = useNavigate();
 
   const handleAreaNameChange = (event) => {
@@ -20,30 +21,30 @@ export const SaveArea = ({ area = null }) => {
     e.preventDefault();
     let newArea = form;
 
-    //TODO: Enviar el token en los headers
+    //TODO: Acá voy a usar el useparams, si está el ID lo redirijo a edit, sino a create
 
     const request = await fetch(Global.apiUrl + "area/create", {
       method: "POST",
       body: JSON.stringify(newArea),
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Authorization": token
       },
     });
 
     const data = await request.json();
-    console.log(data);
-    // if (data.status === "success") {
-    //   setShowSuccessAlert(true);
-    //   setTimeout(() => {
-    //     setShowSuccessAlert(false);
-    //     navigate("/area/view");
-    //   }, 1500);
-    // } else {
-    //   setShowErrorAlert(true);
-    //   setTimeout(() => {
-    //     setShowErrorAlert(false);
-    //   }, 1500);
-    // }
+    if (data.status === "success") {
+      setShowSuccessAlert(true);
+      setTimeout(() => {
+        setShowSuccessAlert(false);
+        navigate(Global.baseUrl + "area/view");
+      }, 1000);
+    } else {
+      setShowErrorAlert(true);
+      setTimeout(() => {
+        setShowErrorAlert(false);
+      }, 1500);
+    }
   };
 
   return (
@@ -90,7 +91,7 @@ export const SaveArea = ({ area = null }) => {
           className="alert alert-success alert-dismissible fade show"
           role="alert"
         >
-          Área creada exitosamente.
+          Área creada correctamente.
         </div>
       )}
       {showErrorAlert && (

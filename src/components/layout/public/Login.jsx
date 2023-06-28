@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import useAuth from '../../../hooks/useAuth';
+import useAuth from "../../../hooks/useAuth";
 import { useForm } from "../../../hooks/useForm";
-import { Global } from '../../../helpers/Global';
+import { Global } from "../../../helpers/Global";
 
 export const Login = () => {
   const { form, changed } = useForm({});
@@ -15,36 +15,28 @@ export const Login = () => {
 
     let userToLogin = form;
 
-    try {
-      //TODO: Cambiar la url, creo que no es mas login_check
-      const request = await fetch(Global.apiUrl + "login_check", {
-        method: "POST",
-        body: JSON.stringify(userToLogin),
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      });
+    const request = await fetch(Global.apiUrl + "login", {
+      method: "POST",
+      body: "params=" + encodeURIComponent(JSON.stringify(userToLogin)), //Esto está asi para que concatene la palabra params en el body
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    });
 
-      const data = await request.json();
-      if (data.status == "success") {
-        localStorage.setItem("user", JSON.stringify(data.user));
-        //TODO: Me falta setear el TOKEN al localStorage
+    const data = await request.json();
 
-        setSaved("logged");
+    if (data.status == "success") {
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
 
-        setTimeout(() => {
-          setAuth(data.user);
-          window.location.reload();
-        }, 1500);
-      } else {
-        setSaved("error");
-        setError(data.message);
-        setTimeout(() => {
-          setSaved("not_sended");
-        }, 1500);
-      }
-    } catch (error) {
+      setAuth(data.user.username);
+      setSaved("logged");
+      setTimeout(() => {
+        window.location.reload();
+      }, 1500);
+    } else {
       setSaved("error");
+      setError(data.message);
       setTimeout(() => {
         setSaved("not_sended");
       }, 1500);
@@ -71,7 +63,7 @@ export const Login = () => {
                 <input
                   type="text"
                   className="form-control text-left"
-                  name="_username"
+                  name="username"
                   placeholder="Usuario"
                   onChange={changed}
                   required
@@ -85,7 +77,7 @@ export const Login = () => {
                 <input
                   type={passwordType}
                   className="form-control text-left"
-                  name="_password"
+                  name="password"
                   placeholder="Password"
                   onChange={changed}
                   required
