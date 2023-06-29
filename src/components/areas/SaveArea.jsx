@@ -27,8 +27,8 @@ export const SaveArea = ({ area = null }) => {
       method: "POST",
       body: JSON.stringify(newArea),
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        "Authorization": token
+        "Content-Type": "application/json",
+        Authorization: token,
       },
     });
 

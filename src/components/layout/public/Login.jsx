@@ -17,9 +17,9 @@ export const Login = () => {
 
     const request = await fetch(Global.apiUrl + "login", {
       method: "POST",
-      body: "params=" + encodeURIComponent(JSON.stringify(userToLogin)), //Esto está asi para que concatene la palabra params en el body
+      body: JSON.stringify(userToLogin),
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
+        "Content-Type": "application/json",
       },
     });
 
