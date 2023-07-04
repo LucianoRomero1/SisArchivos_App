@@ -107,9 +107,9 @@ export const Login = () => {
             </div>
           </div>
         </form>
-        <div className="text-center mt-3">
+        <div className="text-center mt-4">
           {saved == "logged" ? (
-            <strong className="alert alert-success">User logged in</strong>
+            <strong className="alert alert-success">Conectado correctamente</strong>
           ) : (
             ""
           )}
