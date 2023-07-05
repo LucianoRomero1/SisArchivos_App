@@ -3,6 +3,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import { Global } from '../../../helpers/Global';
 import { Nav } from "../layout";
 import useAuth from '../../../hooks/useAuth';
+import Breadcrumb from "./Breadcrumb";
 
 export const PrivateLayout = () => {
   const { auth, loading } = useAuth();
@@ -14,6 +15,7 @@ export const PrivateLayout = () => {
         {auth.username ? (
           <>
             <Nav />
+            <Breadcrumb />
             <Outlet />
           </>
         ) : (

@@ -13,9 +13,9 @@ const TableView = ({ areas }) => {
       <tbody>
         {areas.map((area) => (
           <tr key={area.id}>
-            <td className="col-1">{area.id}</td>
+            <td className="col-2">{area.id}</td>
             <td>{area.name}</td>
-            <td className="col-1">
+            <td className="col-2">
               <div className="dropdown text-center">
                 <a
                   className="btn btn-primary btn-sm dropdown-toggle"

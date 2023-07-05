@@ -30,3 +30,11 @@
     bottom: 0;
     left: 0;
 }
+
+/* Media query para PC */
+@media (min-width: 768px) {
+    .search-input {
+      width: 350px;
+    }
+}
+  

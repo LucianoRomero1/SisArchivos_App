@@ -58,18 +58,30 @@ export const ViewAreas = () => {
     setPerPage(parseInt(event.target.value));
     setCurrentPage(1);
   };
-
+  
   return (
     <div className="card mt-4 ms-4 me-4">
-      <div className="card-header bg-secondary">
+      <div
+        className="card-header"
+        style={{ backgroundColor: "rgba(0, 0, 0, 0.08)" }}
+      >
         <b>Listado de áreas</b>
       </div>
-      <div className="card-body row align-items-center justify-content-start mb-5">
-        <div className="col-2">
-          <PerPageSelect perPage={perPage} onPerPageChange={handlePerPageChange} />
+      <div
+        className="card-body row align-items-center justify-content-start flex-wrap mb-5"
+        style={{ backgroundColor: "rgba(0, 0, 0, 0.03)" }}
+      >
+        <div className="col-12 col-md-3">
+          <PerPageSelect
+            perPage={perPage}
+            onPerPageChange={handlePerPageChange}
+          />
         </div>
-        <div className="col-10 d-flex align-items-center justify-content-end mb-2">
-          <SearchInput searchTerm={searchTerm} onSearchChange={handleSearchChange} />
+        <div className="col-12 col-md-9 d-flex align-items-center justify-content-end mb-2">
+          <SearchInput
+            searchTerm={searchTerm}
+            onSearchChange={handleSearchChange}
+          />
         </div>
         <TableView areas={areas} />
         <div className="pagination-wrapper">

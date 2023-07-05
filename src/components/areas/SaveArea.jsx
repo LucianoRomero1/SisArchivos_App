@@ -48,44 +48,42 @@ export const SaveArea = ({ area = null }) => {
   };
 
   return (
-    <div className="container mt-2">
-      <div className="card mb-3">
-        <div className="card-header">
-          <i className="far fa-file">
-            &nbsp;&nbsp;<b>Ingreso de datos</b>
-          </i>
-        </div>
-        <form method="POST" onSubmit={saveArea}>
-          <div className="card-body">
-            <div className="row">
-              <div className="col-md-5">
-                <label htmlFor="name">
-                  Nombre área <span className="text-danger">*</span>
-                </label>
-                <input
-                  className="form-control text-uppercase"
-                  type="text"
-                  name="name"
-                  value={areaName}
-                  onChange={handleAreaNameChange}
-                  required
-                />
-              </div>
-            </div>
-            <div className="float-end m-3">
-              <button className="btn btn-info" type="submit">
-                {area !== null ? "Guardar cambios" : "Cargar área"}
-              </button>
-              <Link
-                className="btn btn-secondary text-black ms-2"
-                to={Global.baseUrl + "area/view"}
-              >
-                Volver
-              </Link>
+    <div className="card mt-2 ms-4 me-4">
+      <div className="card-header">
+        <i className="far fa-file">
+          &nbsp;&nbsp;<b>Ingreso de datos</b>
+        </i>
+      </div>
+      <form method="POST" onSubmit={saveArea}>
+        <div className="card-body">
+          <div className="row">
+            <div className="col-md-5">
+              <label htmlFor="name">
+                Nombre área <span className="text-danger">*</span>
+              </label>
+              <input
+                className="form-control text-uppercase"
+                type="text"
+                name="name"
+                value={areaName}
+                onChange={handleAreaNameChange}
+                required
+              />
             </div>
           </div>
-        </form>
-      </div>
+          <div className="float-end m-3">
+            <button className="btn btn-info" type="submit">
+              {area !== null ? "Guardar cambios" : "Cargar área"}
+            </button>
+            <Link
+              className="btn btn-secondary text-black ms-2"
+              to={Global.baseUrl + "area/view"}
+            >
+              Volver
+            </Link>
+          </div>
+        </div>
+      </form>
       {showSuccessAlert && (
         <div
           className="alert alert-success alert-dismissible fade show"
