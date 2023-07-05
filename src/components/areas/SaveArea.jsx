@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Global } from "../../helpers/Global";
 import { useForm } from "../../hooks/useForm";
 import { AreaForm } from "./AreaForm";
@@ -43,7 +43,7 @@ export const SaveArea = () => {
     <AreaForm
       saveArea={saveArea}
       changed={changed}
-      area={{}}
+      area={form}
       showSuccessAlert={showSuccessAlert}
       showErrorAlert={showErrorAlert}
     />

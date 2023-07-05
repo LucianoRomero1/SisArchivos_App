@@ -7,7 +7,7 @@ export const AreaForm = ({
   changed,
   area,
   showSuccessAlert,
-  showErrorAlert
+  showErrorAlert,
 }) => {
   return (
     <div className="card mt-2 ms-4 me-4">
@@ -28,7 +28,7 @@ export const AreaForm = ({
                 type="text"
                 name="name"
                 onChange={changed}
-                defaultValue={area.name}
+                value={area.name || ""}
                 required
               />
             </div>
@@ -51,7 +51,9 @@ export const AreaForm = ({
           className="alert alert-success alert-dismissible fade show"
           role="alert"
         >
-          {area.id ? "Área editada correctamente." : "Área creada correctamente."}
+          {area.id
+            ? "Área editada correctamente."
+            : "Área creada correctamente."}
         </div>
       )}
       {showErrorAlert && (
@@ -59,7 +61,9 @@ export const AreaForm = ({
           className="alert alert-danger alert-dismissible fade show"
           role="alert"
         >
-          {area.id ? "Error al editar el área. Inténtalo de nuevo." : "Error al crear el área. Inténtalo de nuevo."}
+          {area.id
+            ? "Error al editar el área. Inténtalo de nuevo."
+            : "Error al crear el área. Inténtalo de nuevo."}
         </div>
       )}
     </div>

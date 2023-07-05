@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Global } from "../../helpers/Global";
 import { useForm } from "../../hooks/useForm";
 import { useParams } from "react-router";
-import { Link } from "react-router-dom";
 import { AreaForm } from "./AreaForm";
 
 export const EditArea = () => {
@@ -33,10 +32,11 @@ export const EditArea = () => {
     }
   };
 
-  const saveArea = async (e) => {
+  const editArea = async (e) => {
     e.preventDefault();
 
     let editedArea = form;
+    //TODO: Me falta hacer que el valor del input llegue igual aunque NO se edite, es decir no eentró al onchange
 
     const request = await fetch(Global.apiUrl + "area/edit/" + params.id, {
       method: "POST",
@@ -64,7 +64,7 @@ export const EditArea = () => {
 
   return (
     <AreaForm
-      saveArea={saveArea}
+      saveArea={editArea}
       changed={changed}
       area={area}
       showSuccessAlert={showSuccessAlert}
