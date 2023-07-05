@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Global } from "../../helpers/Global";
 import TableView from "./TableView";
 import PerPageSelect from "../layout/table/PerPageSelect";
@@ -13,13 +13,14 @@ export const ViewAreas = () => {
   const [totalPages, setTotalPages] = useState(0);
   const [areas, setAreas] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [refreshList, setRefreshList] = useState(false);
 
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
 
   useEffect(() => {
     fetchData();
-  }, [currentPage, perPage, searchTerm]);
+  }, [currentPage, perPage, searchTerm, refreshList]);
 
   const fetchData = async () => {
     try {
@@ -58,7 +59,11 @@ export const ViewAreas = () => {
     setPerPage(parseInt(event.target.value));
     setCurrentPage(1);
   };
-  
+
+  const handleDeleteArea = useCallback(() => {
+    setRefreshList((prevValue) => !prevValue);
+  }, []);
+
   return (
     <div className="card mt-4 ms-4 me-4">
       <div
@@ -83,7 +88,7 @@ export const ViewAreas = () => {
             onSearchChange={handleSearchChange}
           />
         </div>
-        <TableView areas={areas} />
+        <TableView areas={areas} onDeleteArea={handleDeleteArea} />
         <div className="pagination-wrapper">
           <PaginationBar
             currentPage={currentPage}

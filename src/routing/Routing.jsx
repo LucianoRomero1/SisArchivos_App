@@ -9,6 +9,7 @@ import { Error } from "../components/layout/layout";
 import { Global } from '../helpers/Global';
 import { Logout } from "../components/layout/private/Logout";
 import { SaveArea } from "../components/areas/SaveArea";
+import { EditArea } from "../components/areas/EditArea";
 import { ViewAreas } from "../components/areas/ViewAreas";
 
 export const Routing = () => {
@@ -25,6 +26,7 @@ export const Routing = () => {
             <Route path="home" element={<Home />} />
             <Route path="area/create" element={<SaveArea />} />
             <Route path="area/view" element={<ViewAreas />} />
+            <Route path="area/edit/:id" element={<EditArea />} />
             <Route path="logout" element={<Logout />} />
           </Route>
           <Route path="*" element={<Error />} />
