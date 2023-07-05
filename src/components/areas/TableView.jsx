@@ -2,7 +2,7 @@ import React from "react";
 
 const TableView = ({ areas }) => {
   return (
-    <table className="table table-bordered">
+    <table className="table table-bordered table-responsive mt-3">
       <thead>
         <tr>
           <th>ID</th>
@@ -15,7 +15,7 @@ const TableView = ({ areas }) => {
           <tr key={area.id}>
             <td className="col-1">{area.id}</td>
             <td>{area.name}</td>
-            <td className="col-1"> 
+            <td className="col-1">
               <div className="dropdown text-center">
                 <a
                   className="btn btn-primary btn-sm dropdown-toggle"
@@ -28,16 +28,21 @@ const TableView = ({ areas }) => {
                   Opciones
                 </a>
 
-                <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <ul
+                  className="dropdown-menu"
+                  aria-labelledby="dropdownMenuLink"
+                >
                   <li>
                     <a className="dropdown-item" href="#">
-                      Editar registro<i className="ms-2 text-success far fa-edit"></i>
+                      Editar registro
+                      <i className="ms-2 text-success far fa-edit"></i>
                     </a>
                   </li>
                   <li className="dropdown-divider"></li>
                   <li>
                     <a className="dropdown-item" href="#">
-                      Eliminar registro<i className="ms-2 text-danger far fa-trash-alt"></i>
+                      Eliminar registro
+                      <i className="ms-2 text-danger far fa-trash-alt"></i>
                     </a>
                   </li>
                 </ul>

@@ -4,6 +4,8 @@ import TableView from "./TableView";
 import PerPageSelect from "../layout/table/PerPageSelect";
 import SearchInput from "../layout/table/SearchInput";
 import PaginationBar from "../layout/table/PaginationBar";
+import { useNavigate } from "react-router-dom";
+import { useErrorTokenResponse } from "../../hooks/useErrorTokenResponse";
 
 export const ViewAreas = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -11,7 +13,13 @@ export const ViewAreas = () => {
   const [totalPages, setTotalPages] = useState(0);
   const [areas, setAreas] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+
   const token = localStorage.getItem("token");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    fetchData();
+  }, [currentPage, perPage, searchTerm]);
 
   const fetchData = async () => {
     try {
@@ -26,16 +34,16 @@ export const ViewAreas = () => {
       );
       const data = await response.json();
 
-      setAreas(data.data.areas);
-      setTotalPages(data.data.total_pages);
+      if (data.status === "success") {
+        setAreas(data.data.areas);
+        setTotalPages(data.data.total_pages);
+      } else {
+        useErrorTokenResponse(data, navigate);
+      }
     } catch (error) {
       console.error("Error fetching areas:", error);
     }
   };
-
-  useEffect(() => {
-    fetchData();
-  }, [currentPage, perPage, searchTerm]);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -52,31 +60,28 @@ export const ViewAreas = () => {
   };
 
   return (
-    <div className="container-fluid p-4">
-      <div className="row">
-        <div className="col-sm-2">
-          <PerPageSelect
-            perPage={perPage}
-            onPerPageChange={handlePerPageChange}
-          />
-        </div>
-        <div className="col-sm-10">
-          <SearchInput
-            searchTerm={searchTerm}
-            onSearchChange={handleSearchChange}
-          />
-        </div>
+    <div className="card mt-4 ms-4 me-4">
+      <div className="card-header bg-secondary">
+        <b>Listado de áreas</b>
       </div>
-
-      <TableView areas={areas} />
-
-      <div className="pagination-wrapper">
-        <PaginationBar
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={handlePageChange}
-        />
+      <div className="card-body row align-items-center justify-content-start mb-5">
+        <div className="col-2">
+          <PerPageSelect perPage={perPage} onPerPageChange={handlePerPageChange} />
+        </div>
+        <div className="col-10 d-flex align-items-center justify-content-end mb-2">
+          <SearchInput searchTerm={searchTerm} onSearchChange={handleSearchChange} />
+        </div>
+        <TableView areas={areas} />
+        <div className="pagination-wrapper">
+          <PaginationBar
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+          />
+        </div>
       </div>
     </div>
   );
 };
+
+export default ViewAreas;
