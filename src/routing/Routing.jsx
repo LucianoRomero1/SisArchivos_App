@@ -11,6 +11,9 @@ import { Logout } from "../components/layout/private/Logout";
 import { SaveArea } from "../components/areas/SaveArea";
 import { EditArea } from "../components/areas/EditArea";
 import { ViewAreas } from "../components/areas/ViewAreas";
+import { SaveBox } from "../components/box/SaveBox";
+import { ViewBoxes } from "../components/box/ViewBoxes";
+import { EditBox } from "../components/box/EditBox";
 
 export const Routing = () => {
   return (
@@ -27,6 +30,9 @@ export const Routing = () => {
             <Route path="area/create" element={<SaveArea />} />
             <Route path="area/view" element={<ViewAreas />} />
             <Route path="area/edit/:id" element={<EditArea />} />
+            <Route path="box/create" element={<SaveBox />} />
+            <Route path="box/view" element={<ViewBoxes />} />
+            <Route path="box/edit/:id" element={<EditBox />} />
             <Route path="logout" element={<Logout />} />
           </Route>
           <Route path="*" element={<Error />} />

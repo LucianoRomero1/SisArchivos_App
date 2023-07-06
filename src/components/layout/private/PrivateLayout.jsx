@@ -1,8 +1,8 @@
 import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
-import { Global } from '../../../helpers/Global';
+import { Global } from "../../../helpers/Global";
 import { Nav } from "../layout";
-import useAuth from '../../../hooks/useAuth';
+import useAuth from "../../../hooks/useAuth";
 import Breadcrumb from "./Breadcrumb";
 
 export const PrivateLayout = () => {
@@ -15,8 +15,11 @@ export const PrivateLayout = () => {
         {auth.username ? (
           <>
             <Nav />
-            <Breadcrumb />
-            <Outlet />
+
+            <div className="custom-container">
+              <Breadcrumb />
+              <Outlet />
+            </div>
           </>
         ) : (
           <Navigate to={Global.baseUrl + "login"} />

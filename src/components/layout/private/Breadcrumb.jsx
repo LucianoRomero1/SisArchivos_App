@@ -4,7 +4,7 @@ import { Global } from "../../../helpers/Global";
 
 const Breadcrumb = () => {
   return (
-    <div className="mt-3 me-4 ms-4">
+    <div className="mt-3">
       <nav className="navbar navbar-expand-lg navbar-light bg-light" style={{borderRadius: "6px", padding: "0.5rem"}}>
         <div className="container-fluid">
           <nav aria-label="breadcrumb">

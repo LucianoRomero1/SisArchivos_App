@@ -10,7 +10,7 @@ export const AreaForm = ({
   showErrorAlert,
 }) => {
   return (
-    <div className="card mt-2 ms-4 me-4">
+    <div className="card mt-2">
       <div className="card-header">
         <i className="far fa-file">
           &nbsp;&nbsp;<b>Ingreso de datos</b>

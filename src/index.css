@@ -1,19 +1,20 @@
-*{
-    font-family: "Arial", sans-serif;
+* {
+  font-family: "Arial", sans-serif;
 }
 
 /* navbar */
 .bg-basso-red {
-    background-color: #BD2821 !important;
+  background-color: #bd2821 !important;
 }
 
-.navbarLogo:hover{
-    transform: scale(1.1);
-    transition: .5s;
+.navbarLogo:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
 }
 
-.nav-link, .nav-link:link{
-    color: white;
+.nav-link,
+.nav-link:link {
+  color: white;
 }
 
 .nav-link:hover,
@@ -22,19 +23,23 @@
   font-weight: bold;
 }
 
-
 /* footer */
 .fixed-bottom {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    left: 0;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.custom-container {
+  max-width: 1200px; /* Ajusta el valor según tus necesidades */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Media query para PC */
 @media (min-width: 768px) {
-    .search-input {
-      width: 350px;
-    }
+  .search-input {
+    width: 350px;
+  }
 }
-  

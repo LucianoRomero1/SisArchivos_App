@@ -65,7 +65,7 @@ export const ViewAreas = () => {
   }, []);
 
   return (
-    <div className="card mt-4 ms-4 me-4">
+    <div className="card mt-4">
       <div
         className="card-header"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.08)" }}
@@ -73,28 +73,30 @@ export const ViewAreas = () => {
         <b>Listado de áreas</b>
       </div>
       <div
-        className="card-body row align-items-center justify-content-start flex-wrap mb-5"
+        className="card-body  "
         style={{ backgroundColor: "rgba(0, 0, 0, 0.03)" }}
       >
-        <div className="col-12 col-md-3">
-          <PerPageSelect
-            perPage={perPage}
-            onPerPageChange={handlePerPageChange}
-          />
-        </div>
-        <div className="col-12 col-md-9 d-flex align-items-center justify-content-end mb-2">
-          <SearchInput
-            searchTerm={searchTerm}
-            onSearchChange={handleSearchChange}
-          />
-        </div>
-        <TableView areas={areas} onDeleteArea={handleDeleteArea} />
-        <div className="pagination-wrapper">
-          <PaginationBar
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={handlePageChange}
-          />
+        <div className="row align-items-center justify-content-start flex-wrap mb-5">
+          <div className="col-12 col-md-3">
+            <PerPageSelect
+              perPage={perPage}
+              onPerPageChange={handlePerPageChange}
+            />
+          </div>
+          <div className="col-12 col-md-9 d-flex align-items-center justify-content-end mb-2">
+            <SearchInput
+              searchTerm={searchTerm}
+              onSearchChange={handleSearchChange}
+            />
+          </div>
+          <TableView areas={areas} onDeleteArea={handleDeleteArea} />
+          <div className="pagination-wrapper">
+            <PaginationBar
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+            />
+          </div>
         </div>
       </div>
     </div>
