@@ -33,7 +33,7 @@ const TableView = ({ areas, onDeleteArea }) => {
   };
 
   return (
-    <div>
+    <div className="table-responsive">
       {showSuccessAlert && (
         <div
           className="alert alert-success alert-dismissible fade show m-2"
@@ -50,11 +50,11 @@ const TableView = ({ areas, onDeleteArea }) => {
           {alertMessage}
         </div>
       )}
-      <table className="table table-bordered table-responsive mt-3">
+      <table className="table table-bordered mt-3">
         <thead>
           <tr>
             <th>ID</th>
-            <th>Name</th>
+            <th>Nombre</th>
             <th>Acciones</th>
           </tr>
         </thead>

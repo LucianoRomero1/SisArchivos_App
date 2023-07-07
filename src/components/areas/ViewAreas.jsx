@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Global } from "../../helpers/Global";
 import TableView from "./TableView";
 import PerPageSelect from "../layout/table/PerPageSelect";
 import SearchInput from "../layout/table/SearchInput";
 import PaginationBar from "../layout/table/PaginationBar";
+import { Global } from "../../helpers/Global";
 import { useNavigate } from "react-router-dom";
 import { useErrorTokenResponse } from "../../hooks/useErrorTokenResponse";
 
 export const ViewAreas = () => {
+  const [areas, setAreas] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [perPage, setPerPage] = useState(10);
   const [totalPages, setTotalPages] = useState(0);
-  const [areas, setAreas] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [refreshList, setRefreshList] = useState(false);
 
@@ -46,9 +46,9 @@ export const ViewAreas = () => {
     }
   };
 
-  const handlePageChange = (page) => {
+  const handlePageChange = useCallback((page) => {
     setCurrentPage(page);
-  };
+  }, []);
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);

@@ -37,9 +37,33 @@
   margin-right: auto;
 }
 
+.custom-table {
+  font-size: 0.8rem !important; /* Ajusta el tamaño de la fuente según tus preferencias */
+  color: #555 !important; /* Cambia el color del texto según tus preferencias */
+  background-color: #f5f5f5 !important; /* Cambia el color de fondo según tus preferencias */
+  border-color: #ddd !important; /* Cambia el color del borde según tus preferencias */
+}
+
+.custom-table th,
+.custom-table td {
+  padding: 0.5rem; /* Ajusta el espacio interno de las celdas según tus preferencias */
+}
+
+.custom-table th {
+  font-weight: bold !important;
+}
+
 /* Media query para PC */
 @media (min-width: 768px) {
   .search-input {
     width: 350px;
+  }
+}
+
+/* Media query para Mobile  */
+@media (max-width: 768px) {
+  .custom-container {
+    max-width: 100%;
+    padding: 0 20px;
   }
 }
